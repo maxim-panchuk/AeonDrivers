@@ -1,5 +1,6 @@
 package com.backend.aeondrivers.registration;
 
+import com.backend.aeondrivers.person.Client;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,12 +18,15 @@ import javax.inject.Named;
 @Getter
 @Setter
 @ToString
-public class PassengerRegistration {
+public class ClientReg {
     private String login;
     private String password;
-
     private String firstName;
     private String lastName;
     private String bio;
     private UploadedFile img;
+
+    public Client getClient() {
+        return new Client(login, password, firstName, lastName, bio);
+    }
 }

@@ -46,7 +46,7 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.1" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.1" level="project" />
     <orderEntry type="library" name="Maven: javax.faces:jsf-api:2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.omnifaces:omnifaces:3.11.2" level="project" />
+    <orderEntry type="library" name="Maven: org.omnifaces:omnifaces:3.12" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:10.0.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator-cdi:6.2.0.Final" level="project" />

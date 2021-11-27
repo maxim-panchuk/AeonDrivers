@@ -19,4 +19,9 @@ public class Client extends Person {
         setLastName(lastName);
         setBio(bio);
     }
+
+    public Client(String login, String password) {
+        setLogin(login);
+        setPassword(password);
+    }
 }

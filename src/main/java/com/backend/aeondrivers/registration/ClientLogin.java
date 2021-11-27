@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 /**
@@ -13,11 +14,13 @@ import javax.inject.Named;
  * @project AeonDrivers
  */
 @Named
+@RequestScoped
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
-public class PassengerLogin {
+public class ClientLogin {
     private String login;
     private String password;
+
 }

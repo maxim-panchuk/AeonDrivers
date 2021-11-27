@@ -11,7 +11,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public abstract class DriverDocument {
+public class DriverDocument {
     private String name;
-    private String founder;
+    private byte[] img;
 }

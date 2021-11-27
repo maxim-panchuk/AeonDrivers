@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <h:outputStylesheet library="bootstrap-5.1.3-dist" name="css/bootstrap.min.css"/>
+    <h:outputScript library="bootstrap-5.1.3-dist" name="js/bootstrap.bundle.js"/>
+</h:head>
+<h:body>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+
+            </div>
+            <div class="col-6 justify-content-center" style="margin-left: 115px;">
+                <div style="margin-left: 80px; margin-top: 50px;">
+                    <h5 style="margin-top:0">Basic</h5>
+                    <p:panelGrid columns="2">
+                        <f:facet name="header">
+                            <p:graphicImage name="resources/imgs/750.jpg"/>
+                        </f:facet>
+
+                        <h:outputText value="Ф.И.О."/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').firstName}"/>
+
+                        <h:outputText value="Возраст:"/>
+                        <h:outputText value="19"/>
+
+                        <h:outputText value="Стаж вождения"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').experience}"/>
+
+                        <h:outputText value="Километраж"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').kilometers}"/>
+
+                        <h:outputText value="Выполнено заказов"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').tripsDone}"/>
+
+                        <h:outputText value="Рейтинг"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').rating}"/>
+
+                    </p:panelGrid>
+                </div>
+
+                <div class="container" style="margin-top: 100px;">
+
+                    <p:linkButton value="Транспорт" style="margin-right:20px;">
+                        <f:param name="productId" value="10"/>
+                    </p:linkButton>
+
+                    <p:linkButton value="Сообщить о поездке" style="margin-right:20px;" target="_blank">
+                        <f:param name="productId" value="10"/>
+                    </p:linkButton>
+
+                    <p:sidebar widgetVar="sidebar2" position="right">
+                        <h3>Текущие заявки</h3>
+
+                    </p:sidebar>
+                    <p:commandButton icon="pi pi-arrow-left" type="button" onclick="PF('sidebar2').show()"
+                                     styleClass="p-mr-4"/>
+                </div>
+                <div class="container" style="margin-top: 50px; margin-right: 50px;">
+
+                </div>
+                <div class="card">
+                    <h:form id="form">
+                        <p:treeTable id="docs" value="#{ttContextMenuView.root}" var="car" selectionMode="single"
+                                     selection="#{ttContextMenuView.selectedNode}">
+                            <f:facet name="header">
+                                Document Viewer
+                            </f:facet>
+                            <p:column headerText="Название">
+                                <h:outputText value="#{car.carName}"/>
+                            </p:column>
+                            <p:column headerText="Права">
+                                <h:outputText value="#{car.prava}" style="color:#{car.getPravaColor()}"/>
+                            </p:column>
+                            <p:column headerText="Страховка">
+                                <h:outputText value="#{car.strahovka}" style="color:#{car.getStrahovkaColor()}"/>
+                            </p:column>
+                        </p:treeTable>
+
+                        <p:contextMenu for="docs">
+                            <p:menuitem value="View" update="documentPanel" icon="pi pi-search"
+                                        oncomplete="PF('documentDialog').show()"/>
+                            <p:menuitem value="Delete" action="#{ttContextMenuView.deleteNode}" update="docs"
+                                        icon="pi pi-times"/>
+                        </p:contextMenu>
+
+                        <p:dialog id="dialog" header="Document Detail" showEffect="fade" widgetVar="documentDialog"
+                                  modal="true" resizable="false" width="250">
+                            <p:outputPanel id="documentPanel">
+                                <h:panelGrid columns="2" rendered="#{not empty ttContextMenuView.selectedNode}"
+                                             cellpadding="7">
+                                    <h:outputLabel for="name" value="Name"/>
+                                    <h:outputText id="name" value="#{ttContextMenuView.selectedNode.data.name}"
+                                                  styleClass="p-text-bold"/>
+
+                                    <h:outputLabel for="size" value="Size"/>
+                                    <h:outputText id="size" value="#{ttContextMenuView.selectedNode.data.size}"
+                                                  styleClass="p-text-bold"/>
+
+                                    <h:outputLabel for="type" value="Type "/>
+                                    <h:outputText id="type" value="#{ttContextMenuView.selectedNode.data.type}"
+                                                  styleClass="p-text-bold"/>
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </p:dialog>
+                    </h:form>
+                </div>
+
+
+            </div>
+
+            <div class="col-3">
+
+            </div>
+        </div>
+
+    </div>
+
+</h:body>
+</html>

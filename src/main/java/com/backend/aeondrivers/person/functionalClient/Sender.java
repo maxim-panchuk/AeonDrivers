@@ -30,6 +30,5 @@ public class Sender extends Client {
         setLastName(client.getLastName());
         setBio(client.getBio());
     }
-
 }
 
