@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.primefaces.model.file.UploadedFile;
 
 import javax.inject.Named;
 
@@ -17,7 +18,11 @@ import javax.inject.Named;
 @Setter
 @ToString
 public class PassengerRegistration {
-    private String fullName;
     private String login;
     private String password;
+
+    private String firstName;
+    private String lastName;
+    private String bio;
+    private UploadedFile img;
 }

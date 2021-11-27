@@ -1,6 +1,9 @@
 package com.backend.aeondrivers.trip;
 
-import com.backend.aeondrivers.passenger.Passenger;
+import com.backend.aeondrivers.person.Client;
+import com.backend.aeondrivers.person.driver.Driver;
+import com.backend.aeondrivers.trip.model.Cost;
+import com.backend.aeondrivers.trip.model.Route;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -17,11 +20,8 @@ import java.util.ArrayList;
 @Setter
 @ToString
 public abstract class Trip {
-    private Destination from;
-    private Destination to;
-    private Double distance;
-    private Double duration;
-    private Time time;
-    private ArrayList<Passenger> passengers;
+    private Driver driver;
+    private Route route;
     private Cost cost;
+    private ArrayList<Client> clients;
 }

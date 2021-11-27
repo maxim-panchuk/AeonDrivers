@@ -10,18 +10,23 @@
     <h:outputStylesheet library="css" name="registration.css" />
     <h:outputScript library="bootstrap-5.1.3-dist" name="js/bootstrap.bundle.js"/>
 </h:head>
-<h:body>
+<h:body id="body">
     <div class="container-fluid">
         <div class="row">
             <div class="col-7">
 
             </div>
             <div class="col-4 auth-side">
-                <h2 style="color: white; margin-left: 25px; margin-top: 15px">Выполните вход</h2>
-                <h:form>
-                    <h:commandButton value="1"
-                                     action="#{passengerLogin.redirect()}" />
 
+                <h2 style="color: white; margin-left: 25px; margin-top: 15px">Логин пассажира</h2>
+                <h:form style="color: white">
+                    Логин:
+                    <h:inputText  label="Login" style="border-radius: 10px; margin-left: 50px" />
+                    <br/><br/>
+                    Пароль:
+                    <h:inputSecret type="password" label="Password" style="border-radius: 10px; margin-left: 40px" />
+                    <br/><br/>
+                    <h:commandButton value="Submit" action="student_three_response" style="border-radius: 10px; margin-bottom: 25px" />
                 </h:form>
             </div>
         </div>
