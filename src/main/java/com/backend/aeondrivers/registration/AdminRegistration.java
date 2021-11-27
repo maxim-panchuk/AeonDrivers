@@ -12,12 +12,20 @@ import javax.inject.Named;
  * @project AeonDrivers
  */
 @Named
+<<<<<<< Updated upstream
 @NoArgsConstructor
 @Getter
 @Setter
 @ToString
 public class AdminRegistration {
     private String fullName;
+=======
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+public class AdminRegistration {
+>>>>>>> Stashed changes
     private String login;
     private String password;
 }
