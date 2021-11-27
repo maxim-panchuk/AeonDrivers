@@ -1,37 +1,25 @@
 package com.backend.aeondrivers.admin;
 
-<<<<<<< Updated upstream
-import lombok.AllArgsConstructor;
-import lombok.Data;
-=======
 import com.backend.aeondrivers.dao.*;
 import com.backend.aeondrivers.driver.Driver;
 import com.backend.aeondrivers.passenger.Passenger;
 import com.backend.aeondrivers.registration.DriverRegistration;
 import com.backend.aeondrivers.registration.PassengerRegistration;
+import com.backend.aeondrivers.trip.Trip;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
->>>>>>> Stashed changes
 
 /**
  * @author tsypk on 27.11.2021 04:11
  * @project AeonDrivers
  */
-<<<<<<< Updated upstream
-@AllArgsConstructor
-@Data
-public class Admin {
-    private final String login;
-    private final String password;
-=======
-// @Singleton
+
 public class Admin {
     private static Admin admin;
     private static final DriverDAO driverDAO = new Drivers();
     private static final PassengerDAO passengerDAO = new PassengerDAOImpl();
 
-    public Admin GetInstance() {
+    public static Admin GetInstance() {
         if (admin == null)
             admin = new Admin();
         return admin;
@@ -39,12 +27,21 @@ public class Admin {
 
     @Inject
     private PassengerRegistration passengerRegistration;
-    public Passenger RegisterPassenger();
+
+    public Passenger RegisterPassenger() {
+        Passenger passenger = new Passenger();
+        passenger.setPassword(passengerRegistration.getPassword());
+        passenger.setLogin(passengerRegistration.getLogin());
+        passenger.setFullName(passengerRegistration.getFullName());
+        return passenger;
+    }
 
     @Inject
     private DriverRegistration driverRegistration;
-    private Driver RegisterDriver();
 
-    private
->>>>>>> Stashed changes
+    public Driver RegisterDriver() {
+        Driver driver = new Driver();
+
+        return driver;
+    }
 }
