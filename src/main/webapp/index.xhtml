@@ -39,13 +39,5 @@
     </div>
     <p:growl id="messages" showDetail="true"/>
 
-    <div class="card">
-        <h5>Multiple</h5>
-        <h:form enctype="multipart/form-data">
-            <p:fileUpload value="#{fileUploadView.files}" mode="simple" skinSimple="true" multiple="true"/>
-            <p:commandButton value="Submit" ajax="false" action="#{fileUploadView.uploadMultiple}"
-                             styleClass="p-mt-3 ui-button-outlined p-d-block"/>
-        </h:form>
-    </div>
 </h:body>
 </html>

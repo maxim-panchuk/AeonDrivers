@@ -26,9 +26,8 @@ public class FileUploadView {
 
     private UploadedFile file;
     private UploadedFiles files;
-    private byte[] img;
     private String dropZoneText = "Drop zone p:inputTextarea demo.";
-
+    private byte[] img;
 
     public void uploadMultiple() {
         if (files != null) {
@@ -41,6 +40,7 @@ public class FileUploadView {
             }
         }
     }
+
 
     public void handleFileUpload(FileUploadEvent event) {
         FacesMessage message = new FacesMessage("Successful", event.getFile().getFileName() + " is uploaded.");
