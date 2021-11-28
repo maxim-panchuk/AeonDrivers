@@ -1,7 +1,7 @@
 package com.backend.aeondrivers.utils.document;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import org.primefaces.PrimeFaces;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.event.FilesUploadEvent;
@@ -20,27 +20,29 @@ import javax.inject.Named;
  */
 @Named
 @ApplicationScoped
-@Getter
-@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class FileUploadView {
 
     private UploadedFile file;
     private UploadedFiles files;
     private String dropZoneText = "Drop zone p:inputTextarea demo.";
-    private byte[] img;
+
+    public void upload() {
+        if (file != null) {
+            FacesMessage message = new FacesMessage("Удача", file.getFileName() + " загружен.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
 
     public void uploadMultiple() {
         if (files != null) {
             for (UploadedFile f : files.getFiles()) {
-                FacesMessage message = new FacesMessage("Successful", f.getFileName() + " is uploaded.");
-                FacesMessage message1 = new FacesMessage("File type is", f.getContentType());
-                FacesContext.getCurrentInstance().addMessage(null, message1);
+                FacesMessage message = new FacesMessage("Удача", f.getFileName() + " загружен.");
                 FacesContext.getCurrentInstance().addMessage(null, message);
-                img = f.getContent();
             }
         }
     }
-
 
     public void handleFileUpload(FileUploadEvent event) {
         FacesMessage message = new FacesMessage("Successful", event.getFile().getFileName() + " is uploaded.");
@@ -60,4 +62,27 @@ public class FileUploadView {
         }
     }
 
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    public UploadedFiles getFiles() {
+        return files;
+    }
+
+    public void setFiles(UploadedFiles files) {
+        this.files = files;
+    }
+
+    public String getDropZoneText() {
+        return dropZoneText;
+    }
+
+    public void setDropZoneText(String dropZoneText) {
+        this.dropZoneText = dropZoneText;
+    }
 }

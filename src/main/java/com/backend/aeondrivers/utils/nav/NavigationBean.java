@@ -52,6 +52,10 @@ public class NavigationBean {
         return "driver-account" + param;
     }
 
+    public String redDriverPhotoFromDriver() {
+        return "driver-photos" + param;
+    }
+
 
     //INDEX
 

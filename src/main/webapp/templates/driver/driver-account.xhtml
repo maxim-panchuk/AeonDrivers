@@ -21,35 +21,35 @@
 
             </div>
             <div class="col-6 justify-content-center" style="margin-left: 115px;">
-                <div style="margin-left: 80px; margin-top: 50px;">
-                    <h5 style="margin-top:0">Basic</h5>
+                <div style="margin-top: 20px;">
+                    <h5 style="margin-top:0">Информация</h5>
                     <p:panelGrid columns="2">
                         <f:facet name="header">
-                            <p:graphicImage name="resources/imgs/750.jpg"/>
+                            <h:graphicImage alt="аватар" width="200" name="img/panchuk.jpeg" style="margin-left: 1em"/>
                         </f:facet>
 
                         <h:outputText value="Ф.И.О."/>
                         <h:outputText value="#{driverStorage.getDriverByLogin('maxim').firstName}"/>
 
                         <h:outputText value="Возраст:"/>
-                        <h:outputText value="19"/>
+                        <h:outputText value="25 лет"/>
 
                         <h:outputText value="Стаж вождения"/>
-                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').experience}"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').experience} лет"/>
 
                         <h:outputText value="Километраж"/>
-                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').kilometers}"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').kilometers} км"/>
 
                         <h:outputText value="Выполнено заказов"/>
                         <h:outputText value="#{driverStorage.getDriverByLogin('maxim').tripsDone}"/>
 
                         <h:outputText value="Рейтинг"/>
-                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').rating}"/>
+                        <h:outputText value="#{driverStorage.getDriverByLogin('maxim').rating} / 5.0"/>
 
                     </p:panelGrid>
                 </div>
 
-                <div class="container" style="margin-top: 100px;">
+                <div class="container" style="margin-top: 20px; padding: 0">
 
                     <p:linkButton value="Начать поездку" style="margin-right:20px;">
                         <f:param name="productId" value="10"/>
@@ -75,7 +75,7 @@
                         <p:treeTable id="docs" value="#{ttContextMenuView.root}" var="car" selectionMode="single"
                                      selection="#{ttContextMenuView.selectedNode}">
                             <f:facet name="header">
-                                Document Viewer
+                                Автомобили и документы
                             </f:facet>
                             <p:column headerText="Название">
                                 <h:outputText value="#{car.carName}"/>
@@ -117,17 +117,21 @@
                     </h:form>
                 </div>
 
-                <div class="card">
-                    <h5>Multiple</h5>
+                <p:growl id="messages" showDetail="true"/>
+
+                <div class="card" style="padding: 1em; margin-top: 1em; margin-bottom: 1em;">
+                    <h5 style="padding: 0.3em">Загрузка документов</h5>
                     <h:form enctype="multipart/form-data">
                         <p:fileUpload value="#{fileUploadView.files}" mode="simple" skinSimple="true" multiple="true"/>
-                        <p:commandButton value="Submit"
+
+                        <p:commandButton value="Отправить" ajax="false"
+                                         action="#{fileUploadView.uploadMultiple}"
                                          styleClass="p-mt-3 ui-button-outlined p-d-block"
-                                         ajax="false"
-                                         action="#{fileUploadView.uploadMultiple}"/>
-                        <p:commandButton value="Посмотреть фото"
-                                         onclick="(window.location.href='driver-photos.xhtml');"
-                                         styleClass="p-mt-3 ui-button-outlined p-d-block"/>
+                                         style="margin-right: 0.5em;"/>
+
+                        <p:commandButton styleClass="p-mt-3 ui-button-outlined p-d-block" type="submit"
+                                         action="#{navigationBean.redDriverPhotoFromDriver}" value="Галерея"/>
+
                     </h:form>
                 </div>
 

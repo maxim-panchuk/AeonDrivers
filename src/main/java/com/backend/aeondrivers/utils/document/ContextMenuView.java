@@ -48,7 +48,6 @@ public class ContextMenuView implements Serializable {
         selectedNode.getChildren().clear();
         selectedNode.getParent().getChildren().remove(selectedNode);
         selectedNode.setParent(null);
-
         selectedNode = null;
     }
 }

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class Car {
     private String carName;
+    private String carNumber;
     private ArrayList<DriverDocument> documents;
     private ArrayList<DriverDocument> images;
 
@@ -25,8 +26,9 @@ public class Car {
     private boolean strahovka;
     private boolean dkp;
 
-    public Car(String carName, boolean prava, boolean strahovka, boolean dkp) {
+    public Car(String carName, String carNumber, boolean prava, boolean strahovka, boolean dkp) {
         this.carName = carName;
+        this.carNumber = carNumber;
         this.prava = prava;
         this.strahovka = strahovka;
         this.dkp = dkp;

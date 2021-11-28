@@ -15,12 +15,8 @@
 <h:body>
     <ui:include src="/header.xhtml"/>
 
-    <ul>
-        <li>
-            <o:graphicImage value="#{fileUploadView.img}}" width="300" dataURI="true"/>
-        </li>
-    </ul>
-
-
+    <ui:repeat value="#{photosService.photos}" var="image">
+        <o:graphicImage value="#{image}" dataURI="true" width="300" style="margin-top:1em"/>
+    </ui:repeat>
 </h:body>
 </html>
